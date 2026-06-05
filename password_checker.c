@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
+//ctype will handle the other functions within this
 void checkPassword(char *password) {
     int length = strlen(password);
     int hasUpper = 0, hasLower = 0, hasDigit = 0, hasSpecial = 0;
@@ -14,7 +15,7 @@ void checkPassword(char *password) {
         if (ispunct(password[i])) hasSpecial = 1;
     }
 
-    // Score the password
+    // score the password
     if (length >= 8) score++;
     if (length >= 12) score++;
     if (hasUpper) score++;
@@ -22,7 +23,7 @@ void checkPassword(char *password) {
     if (hasDigit) score++;
     if (hasSpecial) score++;
 
-    // Feedback
+    // feedback
     printf("\n--- Password Analysis ---\n");
     printf("Length: %d characters\n", length);
     printf("Uppercase letters: %s\n", hasUpper ? "Yes" : "No");
